@@ -1,0 +1,41 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Testing of the price monitoring
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install poetry
+        poetry install --extras linux
+    - name: Coverage and test with pytest
+      run: |
+        poetry run coverage run --source=price_monitoring --branch -m pytest tests/
+        poetry run coverage report -m
+    - name: Lint with pylint
+      if: ${{ success() || failure() }}
+      run: |
+        poetry run pylint --rcfile pyproject.toml --fail-under 8 price_monitoring utils bot.py csmoney_parser.py steam_parser.py worker.py
+    - name: Run mypy
+      if: ${{ success() || failure() }}
+      continue-on-error: true
+      run: |
+        poetry run mypy --ignore-missing-imports price_monitoring bot.py csmoney_parser.py steam_parser.py worker.py
+    - name: Run black
+      if: ${{ success() || failure() }}
+      continue-on-error: true
+      run: |
+        poetry run black --check proxy_http price_monitoring tests utils bot.py csmoney_parser.py steam_parser.py worker.py

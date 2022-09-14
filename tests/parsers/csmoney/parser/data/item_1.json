@@ -1,0 +1,31 @@
+{
+  "appId": 730,
+  "assetId": 24898849555,
+  "float": "0.008115612901747",
+  "hasHighDemand": false,
+  "id": 24898849555,
+  "img": "https://s1.cs.money/nYb8ubG_icon.png",
+  "nameId": 3985,
+  "overprice": 0.57,
+  "price": 24768.93,
+  "quality": "fn",
+  "rarity": "Covert",
+  "steamId": "76561198310252968",
+  "steamImg": "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0ebcZThQ6tCvq4GGqOT1I6vZn3lU18hwmOvN8IXvjVCLqSwwOj6rYJiRdg42NAuE-lW5kri5hpbuvM7AzHtmsnMh4imPzUa3gB4aaOw9hfCeVxzAUJ5TOTzr",
+  "tradeLock": 1645430400000,
+  "type": 2,
+  "3d": "https://3d.cs.money/item/nYb8ubG",
+  "hasScreenshot": true,
+  "preview": "https://s1.cs.money/nYb8ubG_large_preview.png",
+  "screenshot": "https://s1.cs.money/nYb8ubG_image.jpg",
+  "userId": null,
+  "pattern": 615,
+  "rank": null,
+  "collection": null,
+  "overpay": {
+    "float": 140.69
+  },
+  "stickers": null,
+  "inspect": "38538278967994973",
+  "fullName": "★ Butterfly Knife | Doppler Sapphire (Factory New)"
+}

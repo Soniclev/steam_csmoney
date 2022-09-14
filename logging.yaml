@@ -1,0 +1,22 @@
+version: 1
+disable_existing_loggers: true
+
+
+
+formatters:
+    standard:
+        format: "%(asctime)s - %(module)s - %(levelname)s - %(message)s"
+    json:
+        (): 'json_logging.JSONLogFormatter'
+
+handlers:
+    console:
+        class: logging.StreamHandler
+        level: DEBUG
+        formatter: standard
+        stream: ext://sys.stdout
+
+root:
+    level: INFO
+    handlers: [console]
+    propogate: yes
