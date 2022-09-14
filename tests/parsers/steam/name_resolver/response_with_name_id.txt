@@ -1,0 +1,4 @@
+$J(document).ready( function(){
+			Market_LoadOrderSpread( 175880636 );	// initial load
+			PollOnUserActionAfterInterval( 'MarketOrderSpread', 5000, function() { Market_LoadOrderSpread( 175880636 ); }, 2 * 60 * 1000 );
+		});

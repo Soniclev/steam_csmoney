@@ -1,0 +1,71 @@
+version: '3'
+
+services:
+    rabbitmq:
+        image: rabbitmq:3-management
+        container_name: rabbitmq
+        restart: unless-stopped
+        hostname: "node-dev"
+        environment:
+            RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_ERLANG_COOKIE}
+            RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+            RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+        ports:
+            - "${RABBITMQ_AMQP_PORT}:5672"
+            - "${RABBITMQ_WEBUI_PORT}:15672"
+
+    redis:
+        image: redis:latest
+        container_name: redis_coord
+        restart: unless-stopped
+        command: redis-server --requirepass ${REDIS_PASSWORD}
+        ports:
+            - "${REDIS_PORT}:6379"
+
+    bot:
+        build:
+            dockerfile: Dockerfile
+            context: .
+        restart: unless-stopped
+        network_mode: host
+        depends_on:
+            - rabbitmq
+            - redis
+        env_file: bot.dev.env
+        command: poetry run python3 bot.py
+
+    csmoney_parser:
+        build:
+            dockerfile: Dockerfile
+            context: .
+        restart: unless-stopped
+        network_mode: host
+        depends_on:
+            - rabbitmq
+            - redis
+        env_file: csmoney_parser.dev.env
+        command: poetry run python3 csmoney_parser.py
+
+    steam_parser:
+        build:
+            dockerfile: Dockerfile
+            context: .
+        restart: unless-stopped
+        network_mode: host
+        depends_on:
+            - rabbitmq
+            - redis
+        env_file: steam_parser.dev.env
+        command: poetry run python3 steam_parser.py
+
+    worker:
+        build:
+            dockerfile: Dockerfile
+            context: .
+        restart: unless-stopped
+        network_mode: host
+        depends_on:
+            - rabbitmq
+            - redis
+        env_file: worker.dev.env
+        command: poetry run python3 worker.py

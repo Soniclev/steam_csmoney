@@ -1,0 +1,39 @@
+repos:
+  - repo: local
+    hooks:
+        - id: mypy
+          name: mypy
+          entry: mypy price_monitoring bot.py csmoney_parser.py steam_parser.py worker.py
+          language: system
+          types: [ python ]
+          pass_filenames: false
+          args:
+            [
+              --config-file=pyproject.toml,
+              --ignore-missing-imports,
+            ]
+  - repo: local
+    hooks:
+      - id: black
+        name: black
+        entry: black price_monitoring utils bot.py csmoney_parser.py steam_parser.py worker.py
+        language: system
+        types: [ python ]
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [ python ]
+        args:
+          [
+            "--rcfile=pyproject.toml",
+            "--fail-under=8",
+            "price_monitoring",
+            "utils",
+            "bot.py",
+            "csmoney_parser.py",
+            "steam_parser.py",
+            "worker.py"
+          ]

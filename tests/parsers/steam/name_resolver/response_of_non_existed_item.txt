@@ -1,0 +1,6 @@
+var g_rgAssets = [];
+var g_rgCurrency = [];
+var g_rgListingInfo = [];
+var g_plotPriceHistory = null;
+var g_timePriceHistoryEarliest = new Date();
+var g_timePriceHistoryLatest = new Date();
