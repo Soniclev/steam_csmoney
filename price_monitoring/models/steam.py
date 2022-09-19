@@ -34,6 +34,18 @@ class SkinSellHistory(FastJsonMixin):
     sold_per_week: int
     summary: dict[float, float]  # key: price; value: percentage cover
 
+    def __init__(
+        self,
+        market_name: MarketName,
+        is_stable: bool,
+        sold_per_week: int,
+        summary: dict[float, float] | dict[str, float],
+    ):
+        self.market_name = market_name
+        self.is_stable = is_stable
+        self.sold_per_week = sold_per_week
+        self.summary = {float(k): v for k, v in summary.items()}
+
     def get(self, max_level: float) -> float | None:
         last = None
         for price, coverage in self.summary.items():
