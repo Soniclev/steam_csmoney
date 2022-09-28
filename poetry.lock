@@ -1,17 +1,17 @@
 [[package]]
 name = "aio-pika"
-version = "7.2.0"
+version = "8.2.3"
 description = "Wrapper for the aiormq for asyncio and humans."
 category = "main"
 optional = false
 python-versions = ">3.6, <4"
 
 [package.dependencies]
-aiormq = ">=6.2.3,<6.3.0"
+aiormq = ">=6.4.0,<6.5.0"
 yarl = "*"
 
 [package.extras]
-develop = ["aiomisc (>=15.6.8,<15.7.0)", "coverage (!=4.3)", "coveralls", "nox", "pylava", "pytest", "pytest-cov", "shortuuid", "sphinx", "sphinx-autobuild", "timeout-decorator", "tox (>=2.4)"]
+develop = ["aiomisc (>=16.0,<17.0)", "coverage (!=4.3)", "coveralls", "nox", "pyflakes (<2.5)", "pylava", "pytest", "pytest-cov", "shortuuid", "sphinx", "sphinx-autobuild", "timeout-decorator", "tox (>=2.4)"]
 
 [[package]]
 name = "aiogram"
@@ -102,18 +102,18 @@ aiohttp = ">=2.0.0,<4.0.0"
 
 [[package]]
 name = "aiormq"
-version = "6.2.3"
+version = "6.4.2"
 description = "Pure python AMQP asynchronous client library"
 category = "main"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 
 [package.dependencies]
-pamqp = {version = "3.1.0", markers = "python_version >= \"3.7\""}
+pamqp = "3.2.1"
 yarl = "*"
 
 [package.extras]
-develop = ["aiomisc (>=11.0,<12.0)", "coverage (!=4.3)", "coveralls", "pylava", "pytest", "pytest-cov", "tox (>=2.4)"]
+develop = ["aiomisc (>=16.0,<17.0)", "coverage (!=4.3)", "coveralls", "pylava", "pytest", "pytest-cov", "tox (>=2.4)"]
 
 [[package]]
 name = "aiosignal"
@@ -1103,7 +1103,7 @@ pyparsing = ">=2.0.2,<3.0.5 || >3.0.5"
 
 [[package]]
 name = "pamqp"
-version = "3.1.0"
+version = "3.2.1"
 description = "RabbitMQ Focused AMQP low-level library"
 category = "main"
 optional = false
@@ -1785,11 +1785,12 @@ linux = ["uvloop"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.9,<3.11"
-content-hash = "0aabda664022d2e385d1be9816509f477ee98e288d7d374b35eac4fcd3189284"
+content-hash = "06bbbe05a473b965b485c7e5604d8e0f02a3c0de01ef250256e5e8ecdd15925a"
 
 [metadata.files]
 aio-pika = [
-    {file = "aio_pika-7.2.0-py3-none-any.whl", hash = "sha256:9b741aa81b3dd3917ec1a4910ab0766e4e568bac498831c6a02f0c96936b2d3c"},
+    {file = "aio-pika-8.2.3.tar.gz", hash = "sha256:175b657ae022f318dd1476209bee4d5b793b0e0b298759fea7c11e1aa0cac6cd"},
+    {file = "aio_pika-8.2.3-py3-none-any.whl", hash = "sha256:6378d70d85259420067a79b0f4a6ea9a867f32a0e77125dc4ed14cef599bbe9c"},
 ]
 aiogram = [
     {file = "aiogram-2.20-py3-none-any.whl", hash = "sha256:5281bd5fac2dcc81f2bd1edad45c0d8dfe209733878a2fff00bb63f658e28aae"},
@@ -1886,8 +1887,8 @@ aioresponses = [
     {file = "aioresponses-0.7.3.tar.gz", hash = "sha256:2c64ed5710ee8cb4e958c569184dad12f4c9cd5939135cb38f88c6a8261cceb3"},
 ]
 aiormq = [
-    {file = "aiormq-6.2.3-py3-none-any.whl", hash = "sha256:95f0da57edd55f214a2e6c5b7ac98fa58a7c33911acd0d3315e86926b2dd2605"},
-    {file = "aiormq-6.2.3.tar.gz", hash = "sha256:db6c1e6e384f1d4dafe19f8df70c6dfc994932b40f4e542690016023ff8e952b"},
+    {file = "aiormq-6.4.2-py3-none-any.whl", hash = "sha256:fdbf2efed73a2e07437de3af5e3591165efb155a18394dc7295cac9e80943c62"},
+    {file = "aiormq-6.4.2.tar.gz", hash = "sha256:fd815d2bb9d8c950361697a74c1b067bc078726c3ef3b837e979a68a4986b148"},
 ]
 aiosignal = [
     {file = "aiosignal-1.2.0-py3-none-any.whl", hash = "sha256:26e62109036cd181df6e6ad646f91f0dcfd05fe16d0cb924138ff2ab75d64e3a"},
@@ -2789,7 +2790,8 @@ packaging = [
     {file = "packaging-21.3.tar.gz", hash = "sha256:dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"},
 ]
 pamqp = [
-    {file = "pamqp-3.1.0.tar.gz", hash = "sha256:e4f0886d72c6166637a5513626148bf5a7e818073a558980e9aaed8b4ccf30da"},
+    {file = "pamqp-3.2.1-py2.py3-none-any.whl", hash = "sha256:15acef752356593ca569d13dfedc8ada9f17deeeb8cec4f7b77825e2b6c7de3e"},
+    {file = "pamqp-3.2.1.tar.gz", hash = "sha256:22550ceb1ca50aafda65873e77e8c1c1b139fb5975e1a09860fae940cf8e970a"},
 ]
 pandas = [
     {file = "pandas-1.4.2-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:be67c782c4f1b1f24c2f16a157e12c2693fd510f8df18e3287c77f33d124ed07"},
