@@ -17,7 +17,18 @@ user_agent_rotator = UserAgent(
 
 
 def _create_headers():
-    return {"User-Agent": user_agent_rotator.get_random_user_agent()}
+    return {
+        "User-Agent": user_agent_rotator.get_random_user_agent(),
+        "Accept": "*/*",
+        "Accept-Language": "ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3",
+        "Accept-Encoding": "gzip, deflate, br",
+        # 'X-Requested-With': 'XMLHttpRequest',
+        "Connection": "keep-alive",
+        # 'Referer': referer,
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin",
+    }
 
 
 def create_limiter(proxies: Sequence[Proxy]):

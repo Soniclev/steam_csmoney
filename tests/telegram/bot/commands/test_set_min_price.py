@@ -27,7 +27,7 @@ async def test__min_price_updated(settings_provider, command, text):
 
     settings = settings_provider.set.call_args[0][0]
     assert settings.min_price == min_price
-    message.reply.assert_awaited_with(f"Минимальная цена в ${min_price} успешно установлена!")
+    message.reply.assert_awaited_with(f"Minimal price ${min_price} successfully set!")
 
 
 @pytest.mark.parametrize("text", ["15,3", "--15", "abc", "", "$15.3"])
@@ -46,7 +46,7 @@ async def test__negative_value_not_allowed(settings_provider, command):
     await command.handler(message)
 
     assert settings_provider.set.call_count == 0
-    message.reply.assert_awaited_with(f"Отрицательные значения не допустимы!")
+    message.reply.assert_awaited_with("Negative values are not allowed!")
 
 
 async def test__reply_with_error(settings_provider, command):
@@ -65,4 +65,4 @@ async def test__settings_not_loaded(settings_provider, command):
 
     await command.handler(message)
 
-    message.reply.assert_awaited_with("Не удалось загрузить настройки!")
+    message.reply.assert_awaited_with("Failed to load settings!")

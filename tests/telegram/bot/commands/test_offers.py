@@ -33,7 +33,7 @@ async def test__no_offers(offer_provider, command, message):
     await command.handler(message)
 
     message.reply.assert_awaited_with(
-        "Текущие предложения:\n",
+        "Current offers:\n",
         parse_mode=ParseMode.MARKDOWN_V2,
         disable_web_page_preview=True,
     )
@@ -48,7 +48,7 @@ async def test__offers_sorted(offer_provider, command, message):
     await command.handler(message)
 
     # offers sorted from high profitable to low
-    s = "Текущие предложения:\n"
+    s = "Current offers:\n"
     s += several_to_markdown(
         [
             ItemOfferNotification(

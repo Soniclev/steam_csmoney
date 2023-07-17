@@ -22,7 +22,7 @@ async def test__offer_provider_call(settings_provider, command, message):
 
     await command.handler(message)
 
-    message.reply.assert_awaited_with(f"Текущие настройки: {str(settings)}")
+    message.reply.assert_awaited_with(f"Current settings: {str(settings)}")
 
 
 async def test__reply_with_error(settings_provider, command, message):

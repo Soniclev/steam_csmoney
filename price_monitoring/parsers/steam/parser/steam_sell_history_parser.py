@@ -15,6 +15,21 @@ _POSTPONE_DURATION = 30
 logger = logging.getLogger(__name__)
 
 
+_headers = {
+        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:105.0) Gecko/20100101 Firefox/105.0',
+        'Accept': '*/*',
+        'Accept-Language': 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3',
+        'Accept-Encoding': 'gzip, deflate, br',
+        # 'X-Requested-With': 'XMLHttpRequest',
+        'Connection': 'keep-alive',
+        # 'Referer': referer,
+        'Sec-Fetch-Dest': 'empty',
+        'Sec-Fetch-Mode': 'cors',
+        'Sec-Fetch-Site': 'same-origin',
+        # 'If-Modified-Since': time_now
+    }
+
+
 # noinspection SpellCheckingInspection
 def _create_url(market_name: MarketName) -> str:
     return f"https://steamcommunity.com/market/listings/730/{market_name}"
@@ -22,7 +37,7 @@ def _create_url(market_name: MarketName) -> str:
 
 @catch_aiohttp(logger)
 async def _request(session: ClientSession, url: str) -> str | None:
-    async with session.get(url, timeout=_RESPONSE_TIMEOUT) as response:
+    async with session.get(url, headers=_headers, timeout=_RESPONSE_TIMEOUT) as response:
         response.raise_for_status()
         return await response.text()
 

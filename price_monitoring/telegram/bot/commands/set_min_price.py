@@ -20,15 +20,15 @@ class SetMinPrice(AbstractCommand):
                 raise ValueError(f"could not convert string to float: '{args}'") from exc
 
             if min_price < 0:
-                raise ValueError("Отрицательные значения не допустимы!")
+                raise ValueError("Negative values are not allowed!")
 
             settings = await self.settings_provider.get()
             if not settings:
-                raise ValueError("Не удалось загрузить настройки!")
+                raise ValueError("Failed to load settings!")
             settings.min_price = min_price
             await self.settings_provider.set(settings)
 
-            result = f"Минимальная цена в ${min_price} успешно установлена!"
+            result = f"Minimal price ${min_price} successfully set!"
 
             await message.reply(result)
         except Exception as exc:

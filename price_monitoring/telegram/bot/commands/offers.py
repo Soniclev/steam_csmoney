@@ -30,7 +30,7 @@ class Offers(AbstractCommand):
 
             sorted_offers = sorted(offers, key=_key, reverse=True)
 
-            result = "Текущие предложения:\n"
+            result = "Current offers:\n"
             result += several_to_markdown(offer.create_notification() for offer in sorted_offers)
             parts = aiogram.utils.parts.safe_split_text(result, split_separator="\n\n")
 

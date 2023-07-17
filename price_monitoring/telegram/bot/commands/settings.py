@@ -15,7 +15,7 @@ class Settings(AbstractCommand):
         try:
             settings = await self.settings_provider.get()
 
-            result = f"Текущие настройки: {str(settings)}"
+            result = f"Current settings: {str(settings)}"
 
             await message.reply(result)
         except Exception as exc:

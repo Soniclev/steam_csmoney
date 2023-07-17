@@ -69,3 +69,28 @@ services:
             - redis
         env_file: worker.dev.env
         command: poetry run python3 worker.py
+
+    create_csmoney_tasks:
+        build:
+            dockerfile: Dockerfile
+            context: .
+        network_mode: host
+        volumes:
+            - ./utils:/root/fw3/utils
+        env_file: utils/create_csmoney_tasks.env
+        command: poetry run python3 utils/create_csmoney_tasks.py
+        depends_on:
+            - redis
+
+    upload_proxies:
+        build:
+            dockerfile: Dockerfile
+            context: .
+        network_mode: host
+        volumes:
+            - ./utils:/root/fw3/utils
+            - ./utils_mount:/root/fw3/utils_mount
+        env_file: utils/upload_proxies.env
+        command: poetry run python3 utils/upload_proxies.py
+        depends_on:
+            - redis

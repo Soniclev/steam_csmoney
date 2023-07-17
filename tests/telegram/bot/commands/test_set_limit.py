@@ -27,7 +27,7 @@ async def test__limit_updated(settings_provider, command, text):
 
     settings = settings_provider.set.call_args[0][0]
     assert settings.max_threshold == percentage
-    message.reply.assert_awaited_with(f"Лимит в {percentage}% успешно установлен!")
+    message.reply.assert_awaited_with(f"Limit for {percentage}% successfully set!")
 
 
 @pytest.mark.parametrize("text", ["-15,3", "--15", "abc", "", "15.3%"])
@@ -54,4 +54,4 @@ async def test__settings_not_loaded(settings_provider, command):
 
     await command.handler(message)
 
-    message.reply.assert_awaited_with("Не удалось загрузить настройки!")
+    message.reply.assert_awaited_with("Failed to load settings!")

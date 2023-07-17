@@ -21,11 +21,11 @@ class SetLimit(AbstractCommand):
 
             settings = await self.settings_provider.get()
             if not settings:
-                raise ValueError("Не удалось загрузить настройки!")
+                raise ValueError("Failed to load settings!")
             settings.max_threshold = percentage
             await self.settings_provider.set(settings)
 
-            result = f"Лимит в {percentage}% успешно установлен!"
+            result = f"Limit for {percentage}% successfully set!"
 
             await message.reply(result)
         except Exception as exc:
