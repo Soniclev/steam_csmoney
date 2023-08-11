@@ -59,7 +59,7 @@ docker-compose --env-file prod.env up -d
    2. `/set_limit -30` - This command sets the profit limit for withdrawals. For example, if you set it to -30, only items with a profit margin greater than -30% will be displayed.
 
 Available Telegram bot commands:
-* `/orders` - Displays the current available offers.
+* `/offers` - Displays the current available offers.
 * `/set_min_price <price>` - Sets the minimum price limit. Any item with a price lower than this value will not be displayed.
 * `/set_limit <profit margin>` - Sets the profit limit for withdrawals. The profit margin includes any applicable fees and represents the minimum acceptable profit for an item to be displayed.
 * `/settings` - Displays the current settings for withdrawals.
