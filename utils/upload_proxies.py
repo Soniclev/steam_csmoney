@@ -23,6 +23,7 @@ async def fill_proxies(redis, file, key):
                 break
             proxy = Proxy(proxy=line)
             await storage.add(proxy)
+    print(f"Successfully filled {len(proxies)} proxies")
 
 
 async def main():

@@ -15,7 +15,7 @@ from ....queues import AbstractCsmoneyWriter
 _MAX_ALLOWED_OFFSET = 5000
 _CSMONEY_STEP = 60
 _RESPONSE_TIMEOUT = 10
-_POSTPONE_DURATION = 15
+_POSTPONE_DURATION = 25
 
 logger = logging.getLogger(__name__)
 
@@ -92,7 +92,7 @@ class CsmoneyParserImpl(AbstractCsmoneyParser):
         self._limiter = limiter
 
     async def parse(
-        self, url: str, result_queue: AbstractCsmoneyWriter, max_attempts: int = 10
+        self, url: str, result_queue: AbstractCsmoneyWriter, max_attempts: int = 300
     ) -> None:
         failed_attempts = 0
         offset = 0

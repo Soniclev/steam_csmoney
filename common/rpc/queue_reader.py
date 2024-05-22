@@ -1,3 +1,4 @@
+import asyncio.exceptions
 from asyncio import QueueEmpty
 from datetime import timedelta
 from typing import Optional
@@ -31,5 +32,5 @@ class QueueReader:
         try:
             msg = await self._queue.get(timeout=timeout, no_ack=True)
             return msg.body
-        except QueueEmpty:
+        except (QueueEmpty, asyncio.exceptions.TimeoutError):
             pass

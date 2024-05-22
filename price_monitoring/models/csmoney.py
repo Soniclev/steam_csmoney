@@ -27,6 +27,7 @@ class CsmoneyItemCategory(Enum):
     NAMETAG = 16
     AGENT = 18
     PATCH = 19
+    ZEUS = 20
 
 
 @add_schema

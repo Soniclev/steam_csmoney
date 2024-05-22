@@ -23,7 +23,7 @@ class NameResolver(AbstractNameResolver):
         async with session.get(url, cookies=cookies, timeout=_RESPONSE_TIMEOUT) as response:
             response.raise_for_status()
             text = await response.text()
-            item_nameid = re.findall(r"Market_LoadOrderSpread\(\s+(\d*)\s+\);", text)
+            item_nameid = re.findall(r"Market_LoadOrderSpread\(\s*(\d*)\s*\);", text)
             if item_nameid:
                 return int(item_nameid[0])
             elif "var g_rgListingInfo = [];" in text:

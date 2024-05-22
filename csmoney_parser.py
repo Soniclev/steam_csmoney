@@ -36,7 +36,7 @@ async def main():
         await QueueFactory.connect_publisher(QueueNames.CSMONEY_RESULT, rabbitmq)
     )
 
-    storage = RedisProxyStorage(redis, RedisKeys.STEAM_PROXIES)
+    storage = RedisProxyStorage(redis, RedisKeys.CSMONEY_PROXIES)
     proxies = await storage.get_all()
 
     csmoney_limiter = create_limiter(proxies)

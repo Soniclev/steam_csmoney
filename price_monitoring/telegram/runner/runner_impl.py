@@ -35,6 +35,7 @@ class Runner(AbstractRunner):
 
         for offer in new_offers:
             notification = offer.create_notification()
-            asyncio.create_task(self.bot.notify(notification))
+            await self.bot.notify(notification)
+            await asyncio.sleep(1/15)
 
-        await asyncio.sleep(10)
+        await asyncio.sleep(3)

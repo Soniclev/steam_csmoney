@@ -28,7 +28,7 @@ class QueuePublisher:
 
     async def publish(self,
                       body: bytes,
-                      timeout: float = 10,
+                      timeout: float = 30,
                       message_ttl: Optional[timedelta] = None
                       ) -> None:
         expiration = (message_ttl.total_seconds() * 1000) if message_ttl else None

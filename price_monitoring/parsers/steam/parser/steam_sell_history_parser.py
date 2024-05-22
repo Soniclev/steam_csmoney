@@ -56,7 +56,7 @@ class SteamSellHistoryParser(AbstractSellHistoryParser):
         if not page:
             return False
         try:
-            encoded_data = re.findall(r"\s+var line1=([^;]+);", page)[0]
+            encoded_data = re.findall(r"\s*var line1\s*=\s*([^;]+);", page)[0]
         except IndexError:
             logger.info(f"There is not sell history for {market_name}")
             return True

@@ -6,7 +6,7 @@ from common.tracer import trace, annotate
 from .abstract_csmoney_item_storage import AbstractCsmoneyItemStorage
 from ...types import MarketName
 
-_ITEM_TTL = timedelta(minutes=15)
+_ITEM_TTL = timedelta(minutes=60)
 
 
 def _pattern(prefix: str, market_name: MarketName) -> str:

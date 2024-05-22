@@ -21,7 +21,7 @@ class AsyncSessionConcurrentLimiter:
                 async with self._lock:
                     return self._get_available_no_wait(time(), postpone_duration)
             except NoAvailableSessionError:
-                await asyncio.sleep(0)
+                await asyncio.sleep(0.1)
 
     def _get_available_no_wait(self, timestamp: float, postpone_duration: float) -> ClientSession:
         for session in self._sessions:

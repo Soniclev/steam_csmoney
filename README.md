@@ -32,7 +32,7 @@ graph LR;
 
 Both parsers send responses to appropriate queues (one for Steam and another one for CS.MONEY). After it, a worker fetch response from the queue and process it. The result of processing is uploaded to a Redis instance. A telegram bot periodically retrieve results from Redis and compute profit for each market item. 
 
-# How to run
+# How to run (last tested in April 2024)
 1. Open the bot.dev.env file and locate the line that starts with `TELEGRAM_API_TOKEN=`. Set the value of the `TELEGRAM_API_TOKEN` variable to your own Telegram bot's API token. To obtain the token, you can create a bot on Telegram and follow their instructions.
 Additionally, you need to specify the Telegram user IDs that will have access to this bot. To find your Telegram user ID, you can message the bot called https://t.me/myidbot, and it will provide you with your ID. If you have multiple user IDs, separate them with commas (",").
 Here's an example of how it should look:
