@@ -2,9 +2,9 @@
 
 # High level features
 * Supports proxies (http, socks4, socks5)
-* Built using asyncio
+* Built using asyncio + uvloop
 * Resistant to failure
-* Covered by unit-tests
+* Covered by unit-tests (almost 100% coverage)
 * Most obvious bottlenecks are optimized
 * Created simple CI pipeline
 * For some features added tracing support using Zipkin
